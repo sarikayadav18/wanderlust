@@ -1,0 +1,91 @@
+/* Reset & Layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Responsive Container */
+.container, .container-fluid, .row {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Navbar Fixes */
+.navbar {
+  flex-wrap: wrap;
+  padding: 12px 24px;
+}
+.navbar-nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.navbar-brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+.logo-circle {
+  width: 36px;
+  height: 36px;
+  border: 2px solid red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover Styling */
+.nav-link:hover {
+  color: #007bff !important;
+}
+.card-img-top:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+.listing-card {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+.listing-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.listing-card:active {
+  opacity: 0.7;
+}
+
+/* Forms */
+form input,
+form textarea {
+  border-radius: 10px;
+  font-size: 0.95rem;
+  padding: 8px;
+  width: 100%;
+}
+form button:hover {
+  background-color: #c82333;
+}
+
+/* Mobile Menu fix */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* img.img-fluid {
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+} */
+

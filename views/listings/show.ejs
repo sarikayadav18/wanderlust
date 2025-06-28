@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container my-5" style="max-width: 800px;">
+  <!-- Listing Image -->
+  <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="img-fluid rounded-4 shadow-sm mb-4" style="max-height: 400px; object-fit: cover; width: 100%;">
+
+  <!-- Listing Content -->
+  <div class="px-2">
+    <h2 class="fw-bold"><%= listing.title %></h2>
+    <p class="text-muted fs-5"><%= listing.location %>, <%= listing.country %></p>
+    <p class="fs-5 fw-medium mb-3">₹<%= listing.price %> / night</p>
+
+    <% if (listing.description) { %>
+      <p class="mb-4"><%= listing.description %></p>
+    <% } %>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-3">
+      <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-dark">Edit</a>
+      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this listing?');">
+        <button class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
