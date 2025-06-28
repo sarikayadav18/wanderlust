@@ -1,25 +1,24 @@
-<% layout('layouts/boilerplate') %>
-
-<div class="container my-5" style="max-width: 800px;">
-  <!-- Listing Image -->
-  <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="img-fluid rounded-4 shadow-sm mb-4" style="max-height: 400px; object-fit: cover; width: 100%;">
-
-  <!-- Listing Content -->
-  <div class="px-2">
-    <h2 class="fw-bold"><%= listing.title %></h2>
-    <p class="text-muted fs-5"><%= listing.location %>, <%= listing.country %></p>
-    <p class="fs-5 fw-medium mb-3">₹<%= listing.price %> / night</p>
-
-    <% if (listing.description) { %>
-      <p class="mb-4"><%= listing.description %></p>
-    <% } %>
-
-    <!-- Buttons -->
-    <div class="d-flex gap-3">
-      <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-dark">Edit</a>
-      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this listing?');">
-        <button class="btn btn-danger">Delete</button>
-      </form>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderlust</title>
+  </head>
+  <body>
+    <h3>Listing Details :</h3>
+    <ul>
+      <li><%= listing.title %></li>
+      <li><%= listing.description %></li>
+      <li>&#8377; <%= listing.price.toLocaleString("en-IN") %></li>
+      <li><%= listing.location %></li>
+      <li><%= listing.country %></li>
+    </ul>
+    <br />
+    <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
+    <br /><br />
+    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+      <button>Delete this listing</button>
+    </form>
+  </body>
+</html>
